@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.min.css">
+   <link rel="shortcut icon" href="icon/favicon.ico" type="image/x-icon" />
+   <title>Проверка статистических гипотез</title>
+</head>
+
+<body>
+   <header>
+      <div class="container">
+         <div class="header__body">
+            <div class="header__title">Проверка статистических гипотез</div>
+         </div>
+      </div>
+   </header>
+   <main>
+
+      <section class="startSettings">
+         <div class="container">
+            <div class="startSettings__body">
+
+               <div class="chooseLow">
+                  <div class="title">1. Условие:</div>
+                  <div class="form">
+                     <form action="">
+                        <label for="selectLow">Требуется проверить гипотезу о том, что случайная величина X распределена
+                           по</label>
+                        <select name="selectLow" id="selectLow">
+                           <option value="normal" selected>нормальному закону</option>
+                           <option value="binominal">биноминальному закону</option>
+                           <option value="poisson">закону распределения Пуассона</option>
+                        </select>
+                        <label for="selectSignificanceLevel">c&nbsp;уровнем значимости:</label>
+                        <select name="selectSignificanceLevel" id="selectSignificanceLevel">
+                           <option value="0.01" selected>0.01</option>
+                           <option value="0.05">0.05</option>
+                           <option value="0.1">0.1</option>
+                        </select>
+                     </form>
+                  </div>
+               </div>
+
+               <div class="loadFiles">
+                  <div class="title">2. Выберите файл исходных данных:</div>
+                  <div class="form">
+                     <form action="">
+                        <input type="file" name="loadBtn" id="loadBtn" accept=".csv">
+                     </form>
+                  </div>
+               </div>
+               <div class="buttons">
+                  <div class="buttons__item acceptBtn">Проверить!</div>
+                  <div class="buttons__item downloadBtn hide">Скачать отчет</div>
+               </div>
+
+            </div>
+         </div>
+
+      </section>
+
+      <section class="result">
+         <div class="container">
+            <div class="title">3. Результаты вычислений:</div>
+            <div class="nodata">Нет данных</div>
+            <div class="result__body">
+               <div class="result__block hide">
+                  <div class="subTitle">Считанные данные:</div>
+                  <div class="result__output">
+                     <table class="outputTable1"></table>
+                  </div>
+               </div>
+               <div class="result__block hide">
+                  <div class="subTitle">График & таблица:</div>
+                  <div class="result__output">
+                     <table class="outputTable2"></table>
+                     <div class="outputGraph">
+                        <canvas id="Chart"></canvas>
+                     </div>
+                  </div>
+               </div>
+               <div class="result__block hide">
+                  <div class="subTitle">Вычисленные данные:</div>
+                  <div class="result__output">
+                     <div class="outputData1"></div>
+                  </div>
+                  <div class="subTitle">Вывод:</div>
+                  <div class="result__output">
+                     <div class="outputData2"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+   </main>
+
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src='scripts/pdfmake.min.js'></script>
+   <script src='scripts/vfs_fonts.js'></script>
+   <script src="scripts/script.min.js"></script>
+</body>
+
+</html>
